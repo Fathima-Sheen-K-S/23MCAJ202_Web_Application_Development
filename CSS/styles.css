@@ -1,0 +1,16 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+li:hover {
+    background-color: darkblue;
+    color: white;
+}
