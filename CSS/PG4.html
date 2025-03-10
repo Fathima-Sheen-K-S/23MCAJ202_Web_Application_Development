@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <style>
+        body {
+            font-family: Lobster, cursive;
+            background-color: #54c8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+            margin: 0;
+        }
+        .form-container {
+            background: #fff;
+            padding-top: 50px;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #de2929;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+            color: #0d0d60;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+        }
+        .button-container {
+            text-align: center;
+        }
+        input[type="submit"], input[type="reset"] {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        input[type="reset"] {
+            background: #DC3545;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        input[type="reset"]:hover {
+            background: #a71d2a;
+        }
+        input[type="color"] {
+    width: 50px;  /* Adjust as needed */
+    height: 30px;
+    border: 1px solid #000;
+    padding: 2px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 ><b>Form</b></h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label>Enter name:</label></td>
+                    <td><input type="text" placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td><label>Enter email:</label></td>
+                    <td><input type="email" placeholder="Enter your email"></td>
+                </tr>
+                <tr>
+                    <td><label>Enter phone:</label></td>
+                    <td><input type="tel" placeholder="Enter your phone"></td>
+                </tr>
+                <tr>
+                    <td><label>Enter password:</label></td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td><label>Select qualification:</label></td>
+                    <td>
+                        <select>
+                            <option>High School</option>
+                            <option>Graduate</option>
+                            <option>Post Graduate</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Select gender:</label></td>
+                    <td>
+                        <input type="radio" name="gender"> Male
+                        <input type="radio" name="gender"> Female
+                        <input type="radio" name="gender"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Message:</label></td>
+                    <td><textarea placeholder="Enter your message" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label>Date of birth:</label></td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td><label>Upload a resume:</label></td>
+                    <td><input type="file"></td>
+                </tr>
+                <tr>
+                    <td><label>Choose your favorite color:</label></td>
+                    <td sty><input type="color" value="#000000">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Subscribe to newsletter:</label></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-container">
+                        <input type="reset" value="Reset">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
