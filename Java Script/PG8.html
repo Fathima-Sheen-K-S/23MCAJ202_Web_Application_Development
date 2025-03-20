@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover to Change Content</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            flex-direction: column;
+            text-align: center;
+        }
+        #content {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        #content:hover {
+            transform: scale(1.05);
+        }
+        img {
+            width: 250px;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" onmouseover="changeContent()" onmouseout="resetContent()">
+        <h2 id="text">Hover over me to see the magic! ✨</h2>
+        <img id="image" src="../HTML/image3.jpeg" alt="Default Image">
+    </div>
+    
+    <script>
+        function changeContent() {
+            document.getElementById("text").innerText = "Wow! The content changed! 🎉";
+            document.getElementById("image").src = "../HTML/image2.jpeg";
+        }
+
+        function resetContent() {
+            document.getElementById("text").innerText = "Hover over me to see the magic! ✨";
+            document.getElementById("image").src = "../HTML/image3.jpeg";
+        }
+    </script>
+</body>
+</html>
