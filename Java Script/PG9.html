@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symmetric Matrix Checker</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Helvetica, Verdana;
+      background: #f381ad;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #1a0d0d;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .matrix-inputs {
+      margin-top: 10px;
+    }
+    .row {
+      margin-bottom: 5px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #006600;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Symmetric Matrix Checker</h1>
+
+  <label>Enter matrix size (n):</label>
+  <input type="number" id="matrixSize" min="1">
+  <button onclick="createMatrixInputs()">Create Matrix</button>
+
+  <div id="matrixInputs" class="matrix-inputs"></div>
+
+  <button onclick="checkSymmetry()">Check Symmetry</button>
+
+  <div id="result"></div>
+
+  <script>
+    function createMatrixInputs() {
+      const n = parseInt(document.getElementById("matrixSize").value);
+      const container = document.getElementById("matrixInputs");
+      container.innerHTML = '';
+
+      for (let i = 0; i < n; i++) {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = 'row';
+        for (let j = 0; j < n; j++) {
+          const input = document.createElement("input");
+          input.type = "number";
+          input.id = `cell-${i}-${j}`;
+          input.style.width = "50px";
+          rowDiv.appendChild(input);
+        }
+        container.appendChild(rowDiv);
+      }
+    }
+
+    function checkSymmetry() {
+      const n = parseInt(document.getElementById("matrixSize").value);
+      let matrix = [];
+
+      for (let i = 0; i < n; i++) {
+        let row = [];
+        for (let j = 0; j < n; j++) {
+          const value = parseInt(document.getElementById(`cell-${i}-${j}`).value);
+          if (isNaN(value)) {
+            document.getElementById("result").textContent = "Please fill all matrix values.";
+            document.getElementById("result").style.color = "red";
+            return;
+          }
+          row.push(value);
+        }
+        matrix.push(row);
+      }
+
+      let isSymmetric = true;
+      for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+          if (matrix[i][j] !== matrix[j][i]) {
+            isSymmetric = false;
+            break;
+          }
+        }
+        if (!isSymmetric) break;
+      }
+
+      const result = document.getElementById("result");
+      if (isSymmetric) {
+        result.textContent = "✅ The matrix is symmetric.";
+        result.style.color = "#006600";
+      } else {
+        result.textContent = "❌ The matrix is not symmetric.";
+        result.style.color = "#cc0000";
+      }
+    }
+  </script>
+
+</body>
+</html>
